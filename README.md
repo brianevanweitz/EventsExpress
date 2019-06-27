@@ -27,20 +27,20 @@ Post-MVP:
 
 ## Potential Problems
 * Ticketmaster API has a very specific way it accepts dates in its search queries. I'm gonna have to figure out how to structure user input into that format.
-  * ossible solutions: using date-fns functions to automatically restructure dates, or just showing correct date input in user form. (e.g. 'YYYY-MM-DD')
+  * Possible solutions: using date-fns functions to automatically restructure dates, or just showing correct date input in user form. (e.g. 'YYYY-MM-DD')
 * Syncronizing personal styling and functionality with that of imported calendar code.
   * Possible solutions: I've already got a decent feel for how the calendar code works, so this should just be a matter of hacking at it for a bit until it integrates properly.
 
 ## Component Hierarchy
 * App
-  *Header
-    *Title
-  *Main
-    *Home
-      *Welcome(Contains explanation of the app and how it works)
-      *Form(Takes date and zip code input from user, submit button generates API call and takes user to event list component)
-    *EventList
-      *List(Contains map of event data from API call, with buttons to add events to AllEvents component)
-    *AllEvents(Shows data for events added from EventList, with links to buy tickets for each)
-  *Footer
+  * Header
+    * Title
+  * Main
+    * Home
+      * Welcome(Contains explanation of the app and how it works)
+      * Form(Takes date and zip code input from user, submit button generates API call and takes user to event list component)
+    * EventList
+      * List(Contains map of event data from API call, with buttons to add events to AllEvents component)
+    * AllEvents(Shows data for events added from EventList, with links to buy tickets for each)
+  * Footer
 
