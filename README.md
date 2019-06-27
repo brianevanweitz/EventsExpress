@@ -1,7 +1,7 @@
-#Concert Calendar
-![Concert Gif](https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwiz66vUrorjAhVKSN8KHRx9BbQQjRx6BAgBEAU&url=https%3A%2F%2Fgiphy.com%2Fexplore%2Fconcert&psig=AOvVaw34J_eLAk-jogQTLn6c26w9&ust=1561749030350469)
+# Concert Calendar
+![Concert Gif](https://media1.giphy.com/media/iql3feYAKaqftl4hP3/giphy.gif)
 
-##Project Description
+## Project Description
 Concert Calendar will allow users to search for concerts in their zip code on a specific date. They will be able to select any they're interested in to add them to a list containing links to buy tickets to those concerts.
 
 ##Wireframes
