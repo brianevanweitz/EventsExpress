@@ -12,7 +12,7 @@ class App extends React.Component {
     this.state = {
       formData: {
         date: '',
-        zip: ''
+        city: ''
       },
       eventData: []
     }
@@ -21,7 +21,7 @@ class App extends React.Component {
     this.setState({
       formData: {
         date: '',
-        zip: ''
+        city: ''
       }
     })
   }
@@ -36,9 +36,9 @@ class App extends React.Component {
   }
   handleSubmit = async (e) => {
     e.preventDefault();
-    const { date, zip } = this.state.formData;
+    const { date, city } = this.state.formData;
     this.props.history.push("/eventlist")
-    const eventData = await getConcerts(date, zip);
+    const eventData = await getConcerts(date, city);
     if (eventData) {
       this.setState({
         eventData: eventData.events

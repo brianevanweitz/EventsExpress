@@ -5,8 +5,8 @@ const Form = (props) => {
     <form onSubmit={props.handleSubmit}>
       <label htmlFor='date'>Enter date (format: YYYY-MM-DD)</label>
       <input type='text' id='date' name='date' value={props.formData.date} onChange={props.handleChange} />
-      <label>Enter your zipcode</label>
-      <input type='text' id='zip' name='zip' value={props.formData.zip} onChange={props.handleChange} />
+      <label>Enter your city</label>
+      <input type='text' id='city' name='city' value={props.formData.city} onChange={props.handleChange} />
       <input type='submit' value='Find events!' />
     </form>
   )
