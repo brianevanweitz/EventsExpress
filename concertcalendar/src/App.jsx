@@ -55,7 +55,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <header>
-          <h1>Concert Calendar</h1>
+          <h1>Events Express</h1>
           <Link to="/" onClick={this.resetForm}>Home</Link>
         </header>
         <main>
