@@ -4,7 +4,9 @@ import './App.css';
 import Home from './components/Home';
 import EventList from './components/EventList';
 import Footer from './components/Footer';
-import { getConcerts } from './services/api';
+import AllEvents from './components/AllEvents';
+import { format } from 'date-fns';
+import { getConcerts, ticketLinks } from './services/api';
 
 class App extends React.Component {
   constructor(props) {
@@ -14,8 +16,14 @@ class App extends React.Component {
         date: '',
         city: ''
       },
-      eventData: []
+      eventData: [],
+      savedEvents: []
     }
+  }
+  saveEvent = (id) => {
+    this.setState(prevState => ({
+      savedEvents: [...prevState.savedEvents, id]
+    }))
   }
   resetForm = () => {
     this.setState({
@@ -36,7 +44,8 @@ class App extends React.Component {
   }
   handleSubmit = async (e) => {
     e.preventDefault();
-    const { date, city } = this.state.formData;
+    const city = this.state.formData.city;
+    const date = format(this.state.formData.date, "YYYY-MM-DD")
     this.props.history.push("/eventlist")
     const eventData = await getConcerts(date, city);
     if (eventData) {
@@ -57,6 +66,7 @@ class App extends React.Component {
         <header>
           <h1>Events Express</h1>
           <Link to="/" onClick={this.resetForm}>Home</Link>
+          <Link to="/allevents">Saved Events</Link>
         </header>
         <main>
           <Route exact path="/" render={() => <Home
@@ -65,7 +75,11 @@ class App extends React.Component {
             formData={this.state.formData} />} />
           <Route path="/eventlist" render={() =>
             <EventList
-              eventData={this.state.eventData} />} />
+              eventData={this.state.eventData}
+              saveEvent={this.saveEvent} />} />
+          <Route path="/allevents" render={() =>
+            <AllEvents
+              savedEvents={this.state.savedEvents} />} />
         </main>
         <footer>
           <Footer />
