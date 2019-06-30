@@ -1,19 +1,30 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { format } from 'date-fns';
 
 class EventList extends React.Component {
   render() {
     return (
       <div id='event-list'>
-        <h2>Events:</h2>
-        {this.props.eventData ?
-          this.props.eventData.map(event => (
-            <div className='event' key={event.id}>
-              <h3>{event.name}</h3>
-              <p>Location: {event._embedded.venues[0].name}</p>
-              <button onClick={() => this.props.saveEvent(event.id)}
-              >Add to calendar</button>
-            </div>
-          )) : <h3>No events available in your area on that date, sorry!</h3>}
+        <header id="list-header">
+          <h1>Events Express</h1>
+          <Link to="/">Home</Link>
+          <Link to="/allevents">Saved Events</Link>
+        </header>
+        <main id='list-main'>
+          {this.props.eventData ?
+            this.props.eventData.map(event => (
+              <a className='event-changer' key={event.id}>
+                <div className="event" onClick={() =>
+                  this.props.saveEvent(event.id)}>
+                  <h3>{event.name}</h3>
+                  <p>Location: {event._embedded.venues[0].name}</p>
+                  <p>Start time: {format(event.dates.start.dateTime, 'h:mm A')}</p>
+                  <p className='add-event'>Add to calendar</p>
+                </div>
+              </a>
+            )) : <h3>No events available in your area on that date, sorry!</h3>}
+        </main>
       </div>
     )
   }

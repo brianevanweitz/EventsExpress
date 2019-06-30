@@ -1,30 +1,46 @@
-.App {
-  background-color: #006ec2;
-background-image: url("https://www.transparenttextures.com/patterns/swirl.png");
-}
-header {
-  text-align: center;
-  height: 30vh;
+/* Home section */
+#home-header {
+  background-image: url('./concert-background.jpg');
+  background-size:     cover;                      
+    background-repeat:   no-repeat;
+    background-position: center center;
+    min-height: 100vh;
+    height: 100%;
 }
 header h1 {
   margin: 0;
   padding: 10px;
+  display: inline;
 }
 header a {
+  display: inline;
   text-decoration: none;
   font-weight: bold;
   padding: 20px;
+  color: black;
 }
-main {
+header a:hover {
+  text-decoration: underline;
+}
+
+header, main {
   height: 100%;
-  min-height: 65vh;
 }
 footer {
   font-size: 0.7em;
   text-align: center;
-  height: 5vh;
+  height: 10vh;
+  background-image: linear-gradient(to left, #B9504D, #E1A56F);
 }
-#home {
+footer p {
+  margin: 0;
+  padding-top: 20px;
+  color: white;
+}
+
+#welcome {
+  margin: 50px auto;
+  font-size: 3em;
   text-align: center;
 }
 #go {
@@ -38,9 +54,109 @@ footer {
   text-align: center;
   border-radius: 10px;
 }
-.home-form {
-  margin: 0 20px;
+#go:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-weight: bolder;
+  border: 3px solid white;
 }
-#event-list {
+#form {
   text-align: center;
+}
+.home-form {
+  margin: 0 20px 50px;
+  height: 50px;
+  width: 300px;
+  border-radius: 10px;
+  text-align: center;
+}
+/* event list section */
+#list-header {
+  background-image: url('./concert-background.jpg');
+  background-size:     cover;                      
+    background-repeat:   no-repeat;
+    background-position: center center;
+    min-height: 30vh;
+    height: 100%;
+}
+#list-main {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-image: linear-gradient(to right, #B9504D, #E1A56F);
+  min-height: 70vh;
+}
+.event {
+  margin: 5% 5%;
+  color: white;
+  padding: 10px;
+}
+.event:hover {
+  cursor: pointer;
+  border: 1px solid white;
+  border-radius: 10px;
+}
+.event-changer:visited {
+  margin: 5% 5%;
+  color: white;
+  padding: 10px;
+  border: 1px solid white;
+  border-radius: 10px;
+}
+.event:hover .add-event {
+  display: block;
+}
+.event h3 {
+  font-size: 2em;
+  margin: 0;
+  border-bottom: 1px solid white;
+}
+
+.add-event {
+  display: none;
+}
+/* All events section */
+#saved-events {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: linear-gradient(to right, #B9504D, #E1A56F);
+  height: 100%;
+  min-height: 70vh;
+}
+#saved-events h1 {
+  margin: 0;
+  padding: 20px 0;
+  color: white;
+}
+#saved-events p {
+  margin: 0;
+  color: white;
+}
+.event-store {
+  width: 70%;
+  border: 2px solid white;
+  color: white;
+  text-align: center;
+}
+.event-store h2, p {
+  padding: 10px 0;
+}
+.event-store h2 {
+  margin: 0;
+}
+.event-store button {
+  margin-bottom: 10px;
+  font-size: 20px;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid white;
+  color: white;
+  border-radius: 10px;
+}
+.event-store button:hover {
+  background-color: #E1A56F;
+  color: #B9504D;
+  font-weight: bolder;
+  border: 2px solid #B9504D;
+  cursor: pointer;
 }

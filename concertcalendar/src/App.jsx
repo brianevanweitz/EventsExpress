@@ -17,7 +17,7 @@ class App extends React.Component {
         city: ''
       },
       eventData: [],
-      savedEvents: []
+      savedEvents: [],
     }
   }
   saveEvent = (id) => {
@@ -63,24 +63,18 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <header>
-          <h1>Events Express</h1>
-          <Link to="/" onClick={this.resetForm}>Home</Link>
-          <Link to="/allevents">Saved Events</Link>
-        </header>
-        <main>
-          <Route exact path="/" render={() => <Home
-            handleSubmit={this.handleSubmit}
-            handleChange={this.handleChange}
-            formData={this.state.formData} />} />
-          <Route path="/eventlist" render={() =>
-            <EventList
-              eventData={this.state.eventData}
-              saveEvent={this.saveEvent} />} />
-          <Route path="/allevents" render={() =>
-            <AllEvents
-              savedEvents={this.state.savedEvents} />} />
-        </main>
+        <Route exact path="/" render={() => <Home
+          handleSubmit={this.handleSubmit}
+          handleChange={this.handleChange}
+          formData={this.state.formData}
+          resetForm={this.resetForm} />} />
+        <Route path="/eventlist" render={() =>
+          <EventList
+            eventData={this.state.eventData}
+            saveEvent={this.saveEvent} />} />
+        <Route path="/allevents" render={() =>
+          <AllEvents
+            savedEvents={this.state.savedEvents} />} />
         <footer>
           <Footer />
         </footer>
