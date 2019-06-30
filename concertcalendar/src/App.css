@@ -114,6 +114,11 @@ footer p {
 .add-event {
   display: none;
 }
+#sorry {
+  text-align: center;
+  padding-top: 10%;
+  font-size: 2.5em;
+}
 /* All events section */
 #saved-events {
   display: flex;
