@@ -14,7 +14,6 @@ class App extends React.Component {
     super(props);
     this.state = {
       formData: {
-        date: '',
         city: ''
       },
       eventData: [],
@@ -23,11 +22,24 @@ class App extends React.Component {
     }
   }
 
-  onDateClick = day => {
+  onDateClick = async (day) => {
     this.setState({
       selectedDate: day
     });
-    console.log(this.state.selectedDate);
+    const city = this.state.formData.city;
+    const date = format(this.state.selectedDate, "YYYY-MM-DD")
+    this.props.history.push("/eventlist")
+    const eventData = await getConcerts(date, city);
+    if (eventData) {
+      this.setState({
+        eventData: eventData.events
+      })
+      console.log(eventData.events);
+    } else {
+      this.setState({
+        eventData: null
+      })
+    }
   };
 
   saveEvent = (id) => {
@@ -38,7 +50,6 @@ class App extends React.Component {
   resetForm = () => {
     this.setState({
       formData: {
-        date: '',
         city: ''
       }
     })
@@ -54,20 +65,7 @@ class App extends React.Component {
   }
   handleSubmit = async (e) => {
     e.preventDefault();
-    const city = this.state.formData.city;
-    const date = format(this.state.formData.date, "YYYY-MM-DD")
-    this.props.history.push("/eventlist")
-    const eventData = await getConcerts(date, city);
-    if (eventData) {
-      this.setState({
-        eventData: eventData.events
-      })
-      console.log(eventData.events);
-    } else {
-      this.setState({
-        eventData: null
-      })
-    }
+    this.props.history.push("/calendar")
   }
   render() {
     return (
