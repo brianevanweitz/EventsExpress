@@ -68,11 +68,7 @@ class Calendar extends React.Component {
         const cloneDay = day;
         days.push(
           <div
-            className={`col cell ${
-              !dateFns.isSameMonth(day, monthStart)
-                ? "disabled"
-                : dateFns.isSameDay(day, selectedDate) ? "selected" : ""
-              }`}
+            className={`col cell`}
             key={day}
             onClick={() => this.props.onDateClick(dateFns.parse(cloneDay))}
           >
@@ -111,7 +107,10 @@ class Calendar extends React.Component {
           <Link to="/">Home</Link>
           <Link to="/allevents">Saved Events</Link>
         </header>
-        <div className="calendar-body">
+        <div id="calendar-body">
+          <div id="calendar-header">
+            <h2>Click a date to find events!</h2>
+          </div>
           {this.renderHeader()}
           {this.renderDays()}
           {this.renderCells()}
@@ -122,3 +121,4 @@ class Calendar extends React.Component {
 }
 
 export default Calendar;
+// Calendar code by 'https://blog.flowandform.agency/create-a-custom-calendar-in-react-3df1bfd0b728'

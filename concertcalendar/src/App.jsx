@@ -22,13 +22,16 @@ class App extends React.Component {
     }
   }
 
-  onDateClick = async (day) => {
+  onDateClick = (day) => {
     this.setState({
       selectedDate: day
     });
+    this.submitDay();
+  }
+
+  submitDay = async () => {
     const city = this.state.formData.city;
     const date = format(this.state.selectedDate, "YYYY-MM-DD")
-    this.props.history.push("/eventlist")
     const eventData = await getConcerts(date, city);
     if (eventData) {
       this.setState({
@@ -40,6 +43,7 @@ class App extends React.Component {
         eventData: null
       })
     }
+    this.props.history.push("/eventlist")
   };
 
   saveEvent = (id) => {
