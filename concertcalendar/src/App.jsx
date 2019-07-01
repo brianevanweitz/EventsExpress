@@ -6,7 +6,8 @@ import EventList from './components/EventList';
 import Footer from './components/Footer';
 import AllEvents from './components/AllEvents';
 import { format } from 'date-fns';
-import { getConcerts, ticketLinks } from './services/api';
+import { getConcerts } from './services/api';
+import Calendar from './components/Calendar';
 
 class App extends React.Component {
   constructor(props) {
@@ -18,8 +19,17 @@ class App extends React.Component {
       },
       eventData: [],
       savedEvents: [],
+      selectedDate: new Date()
     }
   }
+
+  onDateClick = day => {
+    this.setState({
+      selectedDate: day
+    });
+    console.log(this.state.selectedDate);
+  };
+
   saveEvent = (id) => {
     this.setState(prevState => ({
       savedEvents: [...prevState.savedEvents, id]
@@ -57,7 +67,6 @@ class App extends React.Component {
       this.setState({
         eventData: null
       })
-      console.log('no events, sorry!')
     }
   }
   render() {
@@ -68,6 +77,10 @@ class App extends React.Component {
           handleChange={this.handleChange}
           formData={this.state.formData}
           resetForm={this.resetForm} />} />
+        <Route path="/calendar" render={() =>
+          <Calendar
+            selectedDate={this.state.selectedDate}
+            onDateClick={this.onDateClick} />} />
         <Route path="/eventlist" render={() =>
           <EventList
             eventData={this.state.eventData}
