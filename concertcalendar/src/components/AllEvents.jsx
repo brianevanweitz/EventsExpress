@@ -11,7 +11,11 @@ class AllEvents extends React.Component {
     }
   }
   getSavedEvents = async () => {
-    const id = this.props.savedEvents.join();
+    const idArr = []
+    this.props.savedEvents.map(event => {
+      idArr.push(event.id);
+    })
+    const id = idArr.join();
     const result = await ticketLinks(id);
     return result;
   }

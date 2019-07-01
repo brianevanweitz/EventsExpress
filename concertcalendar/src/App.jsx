@@ -47,17 +47,14 @@ class App extends React.Component {
     this.props.history.push("/eventlist")
   };
 
-  saveEvent = (id) => {
+  saveEvent = (id, name, date) => {
     this.setState(prevState => ({
-      savedEvents: [...prevState.savedEvents, id]
+      savedEvents: [...prevState.savedEvents, {
+        id: id,
+        name: name,
+        date: date
+      }]
     }))
-  }
-  resetForm = () => {
-    this.setState({
-      formData: {
-        city: ''
-      }
-    })
   }
   handleChange = (e) => {
     const { name, value } = e.target;
@@ -70,7 +67,6 @@ class App extends React.Component {
   }
   handleSubmit = async (e) => {
     e.preventDefault();
-    this.resetForm();
     this.props.history.push("/calendar")
   }
   render() {
@@ -84,11 +80,13 @@ class App extends React.Component {
         <Route path="/calendar" render={() =>
           <Calendar
             selectedDate={this.state.selectedDate}
-            onDateClick={this.onDateClick} />} />
+            onDateClick={this.onDateClick}
+            savedEvents={this.state.savedEvents} />} />
         <Route path="/eventlist" render={() =>
           <EventList
             eventData={this.state.eventData}
-            saveEvent={this.saveEvent} />} />
+            saveEvent={this.saveEvent}
+            handleSubmit={this.handleSubmit} />} />
         <Route path="/allevents" render={() =>
           <AllEvents
             savedEvents={this.state.savedEvents} />} />

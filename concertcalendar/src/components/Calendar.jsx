@@ -73,6 +73,12 @@ class Calendar extends React.Component {
             onClick={() => this.props.onDateClick(dateFns.parse(cloneDay))}
           >
             <span className="number">{formattedDate}</span>
+            <div className="event-data">
+              {this.props.savedEvents.map(event => (
+                (dateFns.format(event.date, 'MM/DD') === dateFns.format(day, 'MM/DD')) &&
+                <p>-{event.name}</p>
+              ))}
+            </div>
           </div>
         );
         day = dateFns.addDays(day, 1);
@@ -121,4 +127,4 @@ class Calendar extends React.Component {
 }
 
 export default Calendar;
-// Calendar code by 'https://blog.flowandform.agency/create-a-custom-calendar-in-react-3df1bfd0b728'
+// Calendar code modified from 'https://blog.flowandform.agency/create-a-custom-calendar-in-react-3df1bfd0b728'
