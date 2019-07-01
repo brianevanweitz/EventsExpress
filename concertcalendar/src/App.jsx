@@ -25,8 +25,9 @@ class App extends React.Component {
   onDateClick = (day) => {
     this.setState({
       selectedDate: day
+    }, () => {
+      this.submitDay();
     });
-    this.submitDay();
   }
 
   submitDay = async () => {
@@ -69,6 +70,7 @@ class App extends React.Component {
   }
   handleSubmit = async (e) => {
     e.preventDefault();
+    this.resetForm();
     this.props.history.push("/calendar")
   }
   render() {
