@@ -16,7 +16,9 @@ const Home = (props) => {
           handleChange={props.handleChange}
           formData={props.formData} />
       </header>
-
+      <footer>
+        <p>©Brian Weitz, 2019 (Product not actually copyrighted)</p>
+      </footer>
     </div>
   )
 }

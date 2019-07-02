@@ -18,12 +18,10 @@ class EventList extends React.Component {
   render() {
     return (
       <div id='event-list'>
-        <header id="list-header">
-          <h1>Events Express</h1>
-          <Link to="/">Home</Link>
-          <Link to="/allevents">Saved Events</Link>
-        </header>
         <main id='list-main'>
+          <div id='return'>
+            <button onClick={this.props.closeModal}>Return to calendar</button>
+          </div>
           {this.props.eventData ?
             this.props.eventData.map((event) => (
               <div id={event.id} className={this.state.selected.includes(event.id) ? "event-selected" : "event"} key={event.id} onClick={(e) => {
@@ -37,9 +35,8 @@ class EventList extends React.Component {
               </div>
             )) : <div id="sorry"><h3>No events available in your area on that date, sorry!</h3></div>}
         </main>
-        <div id='return'>
-          <button onClick={this.props.handleSubmit}>Return to Calendar</button>
-        </div>
+
+
       </div>
     )
   }

@@ -33,6 +33,7 @@ class App extends React.Component {
   submitDay = async () => {
     const city = this.state.formData.city;
     const date = format(this.state.selectedDate, "YYYY-MM-DD")
+    const modal = document.querySelector('#event-list')
     const eventData = await getConcerts(date, city);
     if (eventData) {
       this.setState({
@@ -44,7 +45,7 @@ class App extends React.Component {
         eventData: null
       })
     }
-    this.props.history.push("/eventlist")
+    modal.style.display = "block";
   };
 
   saveEvent = (id, name, date) => {
@@ -69,6 +70,10 @@ class App extends React.Component {
     e.preventDefault();
     this.props.history.push("/calendar")
   }
+  closeModal = () => {
+    const modal = document.querySelector('#event-list');
+    modal.style.display = 'none';
+  }
   render() {
     return (
       <div className="App">
@@ -82,17 +87,16 @@ class App extends React.Component {
             selectedDate={this.state.selectedDate}
             onDateClick={this.onDateClick}
             savedEvents={this.state.savedEvents} />} />
-        <Route path="/eventlist" render={() =>
+        <Route path="/calendar" render={() =>
           <EventList
             eventData={this.state.eventData}
             saveEvent={this.saveEvent}
-            handleSubmit={this.handleSubmit} />} />
+            handleSubmit={this.handleSubmit}
+            closeModal={this.closeModal} />} />
         <Route path="/allevents" render={() =>
           <AllEvents
             savedEvents={this.state.savedEvents} />} />
-        <footer>
-          <Footer />
-        </footer>
+
       </div>
     );
   }

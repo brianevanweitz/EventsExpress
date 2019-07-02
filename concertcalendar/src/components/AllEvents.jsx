@@ -47,6 +47,9 @@ class AllEvents extends React.Component {
             ))
           }
         </div>
+        <footer>
+          <p>©Brian Weitz, 2019 (Product not actually copyrighted)</p>
+        </footer>
       </div>
     )
   }

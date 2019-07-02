@@ -121,6 +121,9 @@ class Calendar extends React.Component {
           {this.renderDays()}
           {this.renderCells()}
         </div>
+        <footer id='cal-footer'>
+          <p>©Brian Weitz, 2019 (Product not actually copyrighted)</p>
+        </footer>
       </>
     );
   }
