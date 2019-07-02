@@ -285,7 +285,7 @@ align-items: center;
   color: white;
   position: absolute;
   top: 2px;
-  right: 2px;
+  left: 2px;
   width: 50px;
   height: 50px;
   font-size: 1em;
@@ -389,11 +389,11 @@ align-items: center;
   }
   #list-main {
     animation: none;
-    width: 1000px;
+    width: 80vh;
     overflow: auto;
   }
   #list-grid {
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto;
   }
   #calendar-body {
     width: 1000px;
