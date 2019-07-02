@@ -107,9 +107,14 @@ footer p {
 
 /* GENERAL */
 
-/* * {
-  box-sizing: border-box;
-} */
+#cal-header {
+  background-image: url('./concert-background.jpg');
+  background-size:     cover;                      
+    background-repeat:   no-repeat;
+    background-position: center center;
+    min-height: 30vh;
+    height: 100%;
+}
 
 #calendar-body {
     font-size: 1em;
@@ -185,7 +190,7 @@ box-shadow: 3px 4px 70px 2px rgba(255,255,255,1);
   text-align: right;
 }
 
-/*Calendar section code by 'https://blog.flowandform.agency/create-a-custom-calendar-in-react-3df1bfd0b728' */
+/*Calendar section code modified from 'https://blog.flowandform.agency/create-a-custom-calendar-in-react-3df1bfd0b728' */
 
 /* event list section */
 #list-header {
@@ -212,12 +217,15 @@ box-shadow: 3px 4px 70px 2px rgba(255,255,255,1);
   border: 1px solid white;
   border-radius: 10px;
 }
-.event-changer:visited {
+.event-selected {
   margin: 5% 5%;
   color: white;
   padding: 10px;
   border: 1px solid white;
   border-radius: 10px;
+}
+.event-selected .add-event {
+  display: block;
 }
 .event:hover .add-event {
   display: block;
@@ -314,4 +322,35 @@ box-shadow: 3px 4px 70px 2px rgba(255,255,255,1);
   font-weight: bolder;
   border: 2px solid #B9504D;
   cursor: pointer;
+}
+
+/* Media queries */
+@media only screen and (max-width: 1300px) {
+  .app {
+    font-size: .8em;
+  }
+  #list-main {
+    grid-template-columns: auto auto;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .app {
+    font-size: .6em;
+  }
+  #list-main {
+    grid-template-columns: auto;
+  }
+  #calendar-body {
+    width: 1000px;
+    overflow: scroll;
+    height: 100%;
+  }
+  #cal-header {
+    width: 1000px;
+    overflow: scroll;
+  }
+  footer {
+    height: 100%;
+  }
 }
