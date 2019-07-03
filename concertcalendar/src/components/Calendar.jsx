@@ -73,12 +73,12 @@ class Calendar extends React.Component {
             onClick={() => this.props.onDateClick(dateFns.parse(cloneDay))}
           >
             <span className="number">{formattedDate}</span>
-            <div className="event-data">
+            <ul className="event-data">
               {this.props.savedEvents.map(event => (
                 (dateFns.format(event.date, 'MM/DD') === dateFns.format(day, 'MM/DD')) &&
-                <p>-{event.name}</p>
+                <li>{event.name}</li>
               ))}
-            </div>
+            </ul>
           </div>
         );
         day = dateFns.addDays(day, 1);

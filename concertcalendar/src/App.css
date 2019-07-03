@@ -267,11 +267,11 @@ box-shadow: 3px 4px 70px 2px rgba(255,255,255,1);
   color: white;
 }
 .event-data {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  margin: 16px 0 0 25px;
+  padding: 0;
+  text-align: left;
 }
-.event-data p {
+.event-data li {
   margin: 0;
   padding: 2px 0;
 }
@@ -375,6 +375,9 @@ align-items: center;
   #list-grid {
     grid-template-columns: auto auto;
     padding-top: 50px;
+  }
+  .event-data {
+    font-size: 0.7em;
   }
 }
 
