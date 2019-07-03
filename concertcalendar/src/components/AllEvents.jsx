@@ -22,13 +22,15 @@ class AllEvents extends React.Component {
   async componentDidMount() {
     const events = await this.getSavedEvents()
     this.setState({
-      events: events.sort((a, b) => format(a.dates.start.localDate, 'MM/DD') - format(b.dates.start.localDate, 'MM/DD'))
+      events: events.sort((a, b) => new Date(a.dates.start.localDate) - new Date(b.dates.start.localDate)
+      )
     })
   }
   async componentDidUpdate() {
     const events = await this.getSavedEvents()
     this.setState({
-      events: events.sort((a, b) => format(a.dates.start.localDate, 'MM/DD') - format(b.dates.start.localDate, 'MM/DD'))
+      events: events.sort((a, b) => new Date(a.dates.start.localDate) - new Date(b.dates.start.localDate)
+      )
     })
   }
   render() {
