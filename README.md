@@ -49,5 +49,4 @@ Post-MVP:
 
 ## Post-project observations
 * I had to change from just concerts to all events to get enough data from my api to be worthwhile. Especially outside of major metropolitan areas, Ticketmaster's offerings become very spaced out.
-* I wish I had set out more post-MVP goals for myself. I had MVP complete by Saturday, and the calendar integrated by Monday morning. Even with teaching myself basic modals and animations, I was left with over 10 hours of classtime that I didn't feel productive in or know how to further improve my site with, so it felt like wasted time.
 * One further goal I would love to add to the site in the future: I'd like to add an API call to the rendering of the calendar that puts an 'X' through each calendar cell where there are no events for that day in the searched city. That way, in less populated areas users don't have to repeatedly click through every day searching for events.
