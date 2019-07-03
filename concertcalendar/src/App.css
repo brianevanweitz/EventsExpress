@@ -226,7 +226,7 @@ box-shadow: 3px 4px 70px 2px rgba(255,255,255,1);
 #list-grid {
   display: grid;
   grid-template-columns: auto auto auto;
-  padding-top: 28px;
+  padding-top: 45px;
 }
 .event {
   margin: 5% 5%;
@@ -364,7 +364,7 @@ align-items: center;
 }
 
 /* Media queries */
-@media only screen and (max-width: 1300px) {
+@media only screen and (max-width: 1000px) {
   .app {
     font-size: .8em;
   }
@@ -374,10 +374,11 @@ align-items: center;
   }
   #list-grid {
     grid-template-columns: auto auto;
+    padding-top: 50px;
   }
 }
 
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 700px) {
   .app {
     font-size: .6em;
   }
@@ -394,6 +395,7 @@ align-items: center;
   }
   #list-grid {
     grid-template-columns: auto;
+    padding-top: 55px;
   }
   #calendar-body {
     width: 1000px;
