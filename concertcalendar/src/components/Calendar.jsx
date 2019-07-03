@@ -76,7 +76,7 @@ class Calendar extends React.Component {
             <ul className="event-data">
               {this.props.savedEvents.map(event => (
                 (dateFns.format(event.date, 'MM/DD') === dateFns.format(day, 'MM/DD')) &&
-                <li>{event.name}</li>
+                <li key={event.id}>{event.name}</li>
               ))}
             </ul>
           </div>

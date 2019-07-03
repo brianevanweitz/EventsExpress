@@ -39,7 +39,6 @@ class App extends React.Component {
       this.setState({
         eventData: eventData.events
       })
-      console.log(eventData.events);
     } else {
       this.setState({
         eventData: null
@@ -49,13 +48,25 @@ class App extends React.Component {
   };
 
   saveEvent = (id, name, date) => {
-    this.setState(prevState => ({
-      savedEvents: [...prevState.savedEvents, {
-        id: id,
-        name: name,
-        date: date
-      }]
-    }))
+    if (this.state.savedEvents.length !== 0) {
+      if (!this.state.savedEvents.some(e => e.id === id)) {
+        this.setState(prevState => ({
+          savedEvents: [...prevState.savedEvents, {
+            id: id,
+            name: name,
+            date: date
+          }]
+        }))
+      }
+    } else {
+      this.setState(prevState => ({
+        savedEvents: [...prevState.savedEvents, {
+          id: id,
+          name: name,
+          date: date
+        }]
+      }))
+    }
   }
   handleChange = (e) => {
     const { name, value } = e.target;
