@@ -1,9 +1,8 @@
 import React from 'react';
-import { Route, Link, withRouter } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import './App.css';
 import Home from './components/Home';
 import EventList from './components/EventList';
-import Footer from './components/Footer';
 import AllEvents from './components/AllEvents';
 import { format } from 'date-fns';
 import { getConcerts } from './services/api';
@@ -95,7 +94,6 @@ class App extends React.Component {
           resetForm={this.resetForm} />} />
         <Route path="/calendar" render={() =>
           <Calendar
-            selectedDate={this.state.selectedDate}
             onDateClick={this.onDateClick}
             savedEvents={this.state.savedEvents} />} />
         <Route path="/calendar" render={() =>

@@ -1,4 +1,4 @@
-/* Home section */
+/* HOME */
 #home-header {
   background-image: url('./concert-background.jpg');
   background-size:     cover;                      
@@ -70,7 +70,7 @@ footer p {
   border-radius: 10px;
   text-align: center;
 }
-/* Calendar Section */
+/* CALENDAR */
 
 /* FONT IMPORTS */
 
@@ -192,7 +192,7 @@ box-shadow: 3px 4px 70px 2px rgba(255,255,255,1);
 
 /*Calendar section code modified from 'https://blog.flowandform.agency/create-a-custom-calendar-in-react-3df1bfd0b728' */
 
-/* event list section */
+/* EVENT LIST */
 #event-list {
   display: none;
   position: fixed;
@@ -298,7 +298,7 @@ align-items: center;
 #return button:hover {
   cursor: pointer;
 }
-/* All events section */
+/* ALL EVENTS */
 #saved-events {
   display: flex;
   flex-direction: column;
@@ -345,7 +345,7 @@ align-items: center;
   cursor: pointer;
 }
 
-/* Animations */
+/* ANIMATIONS */
 @keyframes slideIn {
   0% {
     transform: translateX(100%)
@@ -363,7 +363,7 @@ align-items: center;
   }
 }
 
-/* Media queries */
+/* MEDIA QUERIES */
 @media only screen and (max-width: 1000px) {
   .app {
     font-size: .8em;
