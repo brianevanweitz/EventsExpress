@@ -7,7 +7,7 @@ const Home = (props) => {
   return (
     <div id='home'>
       <header id="home-header">
-        <h1>Events Express</h1>
+        <h1 data-heap-redact-text='true'>Events Express</h1>
         <Link to="/" onClick={props.resetForm}>Home</Link>
         <Link to="/allevents">Saved Events</Link>
         <Welcome />
