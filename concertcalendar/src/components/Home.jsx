@@ -23,7 +23,7 @@ const Home = (props) => {
         <option value="number3" id="number3">#3</option>
       </select>
       <footer>
-        <p>©<span id='promo' class='website link' title='Visit my Website' data-heap-redact-text='true'><a href='https://brianevanweitz.com' target='_blank'>Brian Weitz</a></span>, 2019 (Product not actually copyrighted)</p>
+        <p>©<span id='promo' class='website link' title='Visit my Website' data-heap-redact-text='true' data-heap-redact-attributes='href'><a href='https://brianevanweitz.com' target='_blank'>Brian Weitz</a></span>, 2019 (Product not actually copyrighted)</p>
       </footer>
     </div>
   )
